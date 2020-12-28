@@ -1,62 +1,69 @@
-import time
 import random
-from random import randint
+import time
+from random import randint as ri
+cards_player1 = ri(2,11)
+cards_player2 = ri(2,11)
+cards_player3 = ri(2,11)
+inGame1 = True
+inGame2 = True
+inGame3 = True
+print("Добро пожаловать в игру, парни!")
+time.sleep(1)
+print("Начинаем")
 
-card_player1 = random.randint(2, 11)
-card_player2 = random.randint(2, 11)
-card_player3 = random.randint(2, 11)
-y = 1
-Vowdas = False
-while Vowdas != True:
-    while card_player1 != 0:
-        print("Хочешь взять карту, игрок 1? P.s. введи Yes или No")
+while not inGame1:
+    cardTake1 = str(input("Ну чего ждёшь, ты карту брать будешь?(да или нет)"))
+    if cardTake1 == "да":
+        cards_player1 += ri(2, 11)
+        print("Теперь у тебя очков:", cards_player1)
+    elif cardTake1 == "нет":
+        inGame1 = False
+    else:
+        print("Слушай, попроси нормально.")
+    if cards_player1 > 21:
+        print("Сегодня не твой день")
+        inGame1 = False
+    if cards_player1 == 21:
+        print("Ты победил")
+        inGame1 = False
+        inGame2 = False
+        inGame3 = False
+while not inGame2:
+    print("X*X" * 5)
+    if inGame2:
+        cardTake2 = input("Ну чего ждёшь, ты карту брать будешь?(да или нет)")
+        if cardTake2 == "да":
+            cards_player2 += ri(2, 11)
+            print("Теперь у тебя очков:", cards_player2)
+        elif cardTake2 == "нет":
+            inGame2 = False
+        else:
+            print("Слушай, попроси нормально.")
+    if cards_player2 > 21:
+        print("Сегодня не твой день")
+        inGame2 = False
+    if cards_player2 == 21:
+        print("Ты победил")
+        inGame1 = False
+        inGame2 = False
+        inGame3 = False
+while not inGame3:
+    print("X*X" * 5)
+    if inGame3:
+        cardTake3 = input("Ну чего ждёшь, ты карту брать будешь?(да или нет)")
+        if cardTake3 == "да":
+            cards_player3 += ri(2, 11)
+            print("Теперь у тебя очков:", cards_player3)
+        elif cardTake3 == "нет":
+            inGame3 = False
+        else:
+            print("Слушай, попроси нормально.")
+    if cards_player3 > 21:
+        print("Сегодня не твой день")
+        inGame3 = False
+    if cards_player3 == 21:
+        print("Ты победил")
+        inGame1 = False
+        inGame2 = False
+        inGame3 = False
 
-        c = str(input())
-        if c == "Yes":
-            print("Держи")
-            card_player1 += random.randint(2, 11)
-            if card_player1 > 21:
-                print("Сегодня не твой день, чел")
-                card_player1 = 0
-            if card_player1 == 21:
-                print("Мои поздравления, ты выиграл! ")
-                Vowdas = True
-            if card_player1 < 21:
-                print("Сиди и жди")
-        if c == "No":
-            print("На нет и суда нет")
-
-    print("Следующий")
-    print("Хочешь взять карту, игрок 2? P.s. введи Yes или No")
-    v = str(input())
-    if v == "Yes":
-        print("Держи")
-        card_player2 += random.randint(2, 11)
-        if card_player2 > 21:
-            print("Сегодня не твой день, чел")
-            card_player2 = 0
-        if card_player2 == 21:
-            print("Мои поздравления, ты выиграл! ")
-            Vowdas = True
-        if card_player2 < 21:
-            print("Сиди и жди")
-    if v == "No":
-        print("На нет и суда нет")
-    if (c == "No" and v == "No") or (card_player2 == 0 and card_player1 == 0):
-        print("Игрок 3, ты выиграл")
-    print("Следующий")
-    print("Хочешь взять карту, игрок 3? P.s. введи Yes или No")
-    b = str(input())
-    if b == "Yes":
-        print("Держи")
-        card_player3 += random.randint(2, 11)
-        if card_player3 > 21:
-            print("Сегодня не твой день, чел")
-            card_player3 = 0
-        if card_player3 == 21:
-            print("Мои поздравления, ты выиграл! ")
-            Vowdas = True
-        if card_player3 < 21:
-            print("Сиди и жди")
-    if b == "No":
-        print("На нет и суда нет")
