@@ -17,7 +17,7 @@ time.sleep(1)
 print("Игрок 3, твой счёт: ", player3)
 time.sleep(1)
 
-while inGame1 or inGame2 or inGame3:
+while inGame1 and inGame2 and inGame3:
     if inGame1:
         print("****************************")
         answer1 = input("Игрок 1, будешь карту брать? (напиши по русски и без пробелов)").lower()
